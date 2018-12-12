@@ -1,38 +1,21 @@
 from rest_framework import serializers
-from .models import *
-from django_contrib.auth.models import User
+from CORE.models import Provincias, Regiones, Usuarios, Productos, Tiendas, Generos, Presupuestos
 
+# ! Utilites
+# Provincias
 class ProvinciaSerializer(serializers.ModelSerializer):
     class Meta:
-        model=Provincia
-        field=('IdProvincia', 'NombreProv')
+        model = Provincias
+        fields = ('provincia_id', 'nombre', 'region_id_id')
 
-class ComunaSerializer(serializers.ModelSerializer):
+# Regiones 
+class RegionSerializer(serializers.ModelSerializer):
     class Meta:
-        model=Comuna
-        field=('IdComuna', 'NombreComu', 'Provincia')
+        model = Regiones
+        fields = ('region_id', 'nombre', 'ordinal')
 
-class EstadoSerializer(serializers.ModelSerializer):
+# Generos
+class GeneroSerializer(serializers.ModelSerializer):
     class Meta:
-        model=Estado
-        field=('IdEstado', 'Descripcion')
-
-class SucursalSerializer(serializers.ModelSerializer):
-    class Meta:
-        model=Sucursal
-        field=('NombreSuc', 'Direccion', 'Provincia', 'Comuna')
-
-class ProductoSerializer(serializers.ModelSerializer):
-    class Meta:
-        model=Producto
-        field=('NombreProd', 'CantidadProd', 'PrecioProd', 'Sucursal')
-
-class PresupuestoSerializer(serializers.ModelSerializer):
-    class Meta:
-        model=Presupuesto
-        field=('Nombre', 'Cantidad', 'Saldo', 'TotalPagar')
-
-class RegistroComprasSerializer(serializers.ModelSerializer):
-    class Meta:
-        model=RegistroCompras
-        field=('Producto', 'Estado')
+        model = Generos
+        fields = ('gender_id', 'gender_desc')

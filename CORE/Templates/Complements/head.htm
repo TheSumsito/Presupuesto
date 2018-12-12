@@ -26,18 +26,31 @@
             <div class="container-fluid">
                 <ul class="nav justify-content-end">
                     <li class="nav-item">
-                        <a class="nav-link active h5 text-light" style="font-family: Arial, Helvetica, sans-serif" href="{% url 'home' %}">Home</a>
+                        <a class="nav-link active h5 text-light" href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active h5 text-light" style="font-family: Arial, Helvetica, sans-serif" href="{% url 'contacto' %}">Contacto</a>
+                        <a class="nav-link active h5 text-light"  href="{% url 'contacto' %}">Contacto</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active h5  text-light" style="font-family: Arial, Helvetica, sans-serif" href="{% url 'registro' %}">Registrarse</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active h5  text-light" style="font-family: Arial, Helvetica, sans-serif"
-                            href="{% url 'login' %}">Login</a>
-                    </li>
+                    {% if user.is_staff %}
+                        <li class="nav-item">
+                            <a class="nav-link active h5 text-warning" href="#">Admin</a>
+                        </li>
+                    {% endif %}
+                    {% if user.is_authenticated == False %}
+                        <li class="nav-item">
+                            <a class="nav-link active h5  text-light" href="{% url 'registro' %}">Registrarse</a>
+                        </li>    
+                        <li class="nav-item">
+                            <a class="nav-link active h5  text-light" href="{% url 'login' %}">Login</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link active h5  text-light" href="#">Presupuestos</a>
+                        </li>  
+                        <li class="nav-item">
+                            <a class="nav-link active h5  text-light" href="{% url 'cerrar' %}">Cerrar sesión</a>
+                        </li>   
+                    {% endif %}
                 </ul>
             </div>
         </nav>

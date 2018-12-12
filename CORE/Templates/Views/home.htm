@@ -1,9 +1,11 @@
 {% extends 'COMPLEMENTS/head.htm' %}
 
 {% block head %}
+
 {% endblock head %}
 
 {% block body %}
+{% csrf_token %}
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active" style="background-color: black">

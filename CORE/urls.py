@@ -1,15 +1,21 @@
 from django.contrib import admin
 from django.urls import path, include
-from . import views
+from .views import login_social, login_usuario, Home, contacto, registro, presupuesto, productos, cerrar
+from API import views
 
 urlpatterns = [
-    path('', views.Home, name="home"),
-    path('/login/', views.login, name='login'), 
-    path('/contacto/', views.contacto, name="contacto"),
-    path('/registro/', views.registro, name="registro"),
-    path('/login_usuario/', views.login_usuario, name="login_usuario"),
-    path('/presupuesto/', views.presupuesto, name="presupuesto"),
-    path('/productos/', views.productos, name="productos"),
-
+    path('', Home, name="home"),
+    path('login/',login_social, name='login'), 
+    path('contacto/', contacto, name="contacto"),
+    path('registro/', registro, name="registro"),
+    path('login_usuario/', login_usuario, name="login_usuario"),
+    path('presupuesto/', presupuesto, name="presupuesto"),
+    path('productos/', productos, name="productos"),
     path('oauth/', include('social_django.urls', namespace='social')),
+    path('cerrar/',cerrar, name="cerrar"),
+
+    # ! API 
+    path('api_gen_list/', views.GenderList.as_view()),
+    path('api_reg_list/', views.RegionesList.as_view()),
+    path('api_pro_list/', views.ProvinciasList.as_view()),
 ]
