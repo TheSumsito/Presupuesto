@@ -1,0 +1,24 @@
+{% extends 'Complements/head.htm' %}
+
+{% block body %}
+<div class="container">
+    <div class="col-sm-9 col-md-10 col-lg-5 mx-auto">
+        <div class="card my-5">
+            <div class="card-body">
+                <h5 class="card-title text-center h2" style="font-family: fantasy">Iniciar Sesion</h5>
+                <form class="form-signin">
+                    <center>
+                        <hr style="background-color: black">
+                        <a href="{% url 'social:begin' 'facebook' %}"><img style="width: 100%" src="../../static/img/Botones/facebook.png" alt=""></a>
+                        <hr>
+                        <a href=""><img style="width: 100%" src="../../static/img/Botones/google.png" alt=""></a>
+                        <hr style="background-color: black">
+                        <a href="{% url 'login_usuario' %}"><img style="width: 70%" src="../../static/img/Botones/login.png"
+                                alt=""></a>
+                    </center>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}

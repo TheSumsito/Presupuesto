@@ -1,0 +1,66 @@
+{% extends 'Complements/head.htm' %}
+
+{% block body %}
+<form method="POST" id="Formulario" autocomplete="off">
+    <div id="login">
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" method="POST">
+                            <br>
+                            <h3 class="text-center" style="font-family: fantasy">Contactanos Para Mas Información</h3>
+                            <hr style="background-color: black">
+
+                            <!-- Nombre -->
+                            <div class="form-group">
+                                <label for="Nombre">Nombre Completo:</label><br>
+                                <input type="text" name="txtNombre" id="txtNombre" class="form-control" placeholder="Ingrese su nombre">
+                            </div>
+
+                            <!-- Correo Electronico -->
+                            <div class="form-group">
+                                <label for="Correo">Correo Electronico:</label><br>
+                                <input type="text" name="txtCorreo" id="txtCorreo" class="form-control" placeholder="Ingrese su correo">
+                            </div>
+
+                            <!-- Telefono -->
+                            <div class="form-group">
+                                <label for="Telefono">Telefono:</label><br>
+                                <input type="text" name="txtTelefono" id="txtTelefono" class="form-control" placeholder="Ingrese su telefono">
+                            </div>
+
+                            <!-- Provincia -->
+                            <div class="form-group">
+                                <label for="Provincia">Provincia:</label><br>
+                                <select name="cboProvincia" id="cboProvincia" class="form-control">
+                                    <option value="">Seleccione</option>
+                                </select>
+                            </div>
+
+                            <!-- Comuna -->
+                            <div class="form-group">
+                                <label for="Comuna">Comuna:</label><br>
+                                <select name="cboComuna" id="cboComuna" class="form-control">
+                                    <option value="">Seleccione</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Mensaje">Mensaje:</label><br>
+                                <textarea type="text" name="txtMensaje" id="txtMensaje" rows="4" class="form-control" placeholder="Ingrese un mensaje"></textarea>
+                            </div>
+
+                            <!-- Boton Ingresar Contacto -->
+                            <br>
+                            <div class="form-group" method="POST">
+                                <input type="submit" name="btnIngresar" class="btn btn-success btn-md" value="Ingresar">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock body %}

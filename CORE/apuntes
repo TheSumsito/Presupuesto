@@ -1,0 +1,64 @@
+<div class="container-fluid" style="background-color:#fba323">
+    <center>
+        <img src="../../static/img/presupuesto.png">
+    </center>
+</div>
+
+
+<div class="card-group">
+    <div>
+        <img src="" alt="">
+    </div>
+
+</div>
+<div class="card-group">
+    <div class="card">
+        <img class="img-top" src="../../static/img/Home/MSI---Carrusel-Notebook---Navidad-2018.png">
+    </div>
+    <div class="card">
+        <img src="../../static/img/Home/Banner-Carrusel--ACER---Campaña-Nov-2018.png">
+    </div>
+</div>  
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+{% extends 'Complements/head.htm' %}
+
+{% block body %}
+<form method="POST" id="Formulario" autocomplete="off">
+    <div id="login">
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" method="POST">
+                            <br>
+                            <h3 class="text-center" style="font-family: fantasy">Iniciar Sesion</h3>
+                            <hr style="background-color: black">
+
+                            <!-- Correo Usuario -->
+                            <div class="form-group">
+                                <label for="Usuario">Usuario:</label><br>
+                                <input type="text" name="txtUsuario" id="txtUsuario" class="form-control" placeholder="Ingrese usuario">
+                            </div>
+
+                            <!-- Contraseña -->
+                            <div class="form-group">
+                                <label for="Pass">Contraseña:</label><br>
+                                <input type="text" name="txtPass" id="txtPass" class="form-control" placeholder="Ingrese contraseña">
+                            </div>
+
+                            <!-- Botones -->
+                            <br>
+                            <div class="form-group" method="POST">
+                                <input type="submit" name="btnIngresar" class="btn btn-success btn-md" value="Ingresar">
+                                <a href=""><img style="width: 45%" src="../../static/img/Botones/ingresarfacebook.png" alt=""></a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock body %}
