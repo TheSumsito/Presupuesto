@@ -19,3 +19,9 @@ class GeneroSerializer(serializers.ModelSerializer):
     class Meta:
         model = Generos
         fields = ('gender_id', 'gender_desc')
+
+# Presupuestos
+class PresupuestoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Presupuestos
+        fields = ('name', 'tot_prod', 'tot_money', 'max_money', 'user_rut')

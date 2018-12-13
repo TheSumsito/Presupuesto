@@ -46,6 +46,7 @@ class Tiendas(models.Model):
     adress = models.CharField(max_length=20, default="nn")
     region_id = models.ForeignKey(Regiones, on_delete=models.CASCADE)
     provincia_id = models.ForeignKey(Provincias, on_delete=models.CASCADE)
+    estado = models.IntegerField(default=0)
     def __str__(self):
         return self.store_name
 

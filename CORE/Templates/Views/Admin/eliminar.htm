@@ -1,0 +1,30 @@
+{% extends 'Complements/head.htm' %}
+{% block body %}
+<form method="POST">
+    {% csrf_token %}
+    <div class="container">
+        <center>
+            <br>
+            <h1 style="font-family: fantasy">Eliminar tienda</h1>
+            <hr style="background-color: black">
+            {% if succes %}
+                <h2 class="h2 text-success">Se eliminó con exito!</h2>
+            {% endif %}
+            <br>
+            <div class="form-group">
+                <div class="col-6">
+                    <p>Seleccione la tienda:</p>
+                    <select class="form-control" name="cboTienda" id="">
+                        {% for i in stores %}
+                            <option value="{{i.store_id}}">{{i.store_name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="container">
+                <input type="submit" class="btn-warning btn" value="Eliminar">
+            </div>
+        </center>
+    </div>
+</form>
+{% endblock body %}

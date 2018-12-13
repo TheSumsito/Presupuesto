@@ -1,33 +1,65 @@
-{% extends 'Complements/usuario.htm' %}
+{% extends 'Complements/head.htm' %}
 {% block body %}
-<div class="container">
-    <center>
-        <h4>Listado de Productos</h4>
-    </center>
-    <hr style="background-color: black">
-    <table class="table table-hover table-dark">
-        <thead>
-            <tr>
-                <th scope="col">Identificador</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Precio</th>
-                <th scope="col">Tienda</th>
-                <th scope="col">Stock</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row"></th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+<form method="post">
+    {% csrf_token %}
+    <div class="container">
+        <center>
+            <br>
+            <h1 style="font-family: fantasy">Ingrese Producto</h1>
+            <hr style="background-color: black">
+        </center>
+        <br>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-6">
+                    <p>Lista:</p>
+                    <select class="form-control" name="cboTienda" id="cboTienda">
+                        {% for l in lists %}
+                            <option value={{l.name}}>{{l.name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-6">
+                    <p>Nombre Producto:</p>
+                    <input type="text" class="form-control" name="txtNombre" id="txtNombre" placeholder="Ingrese nombre">
+                </div>
+                <div class="col-6">
+                    <p>Tienda:</p>
+                    <select class="form-control" name="cboTienda" id="cboTienda">
+                        {% for t in stores %}
+                            <option value={{t.store_id}}>{{t.store_name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div class="form-row">
+                <div class="col-6">
+                    <p>Costo Presupuestado:</p>
+                    <input type="text" class="form-control" name="txtCosto" id="txtCosto" placeholder="$0">
+                </div>
+                <div class="col-6">
+                    <p>Precio Producto</p>
+                    <input type="text" class="form-control" name="txtPrecio" id="txtPrecio" placeholder="$0">
+                </div>
+            </div>
+            <br>
+            <div class="form-row">
+                <div class="col-6">
+                    <p>Notas</p>
+                    <textarea class="form-control" name="txtNotas" id="txtNotas" cols="20" rows="10" placeholder="Ingrese una nota"></textarea>
+                </div>
+                <div class="col-6">
+                    <img class="img-fluid" src="../../static/img/Agregar Producto/tatuaje-temporal-de-furgoneta-retro.jpg"
+                        alt="">
+                    <br>
+                    <div class="form-group">
+                        <button type="submit" class="btn-success btn-lg">Agregar Producto</button>
+                    </div>
+                </div>
+            </div>
 
-        </tbody>
-    </table>
-<p>¿Tu Producto no esta en la Lista?</p>
-<input type="text" name="" id="" form="input" placeholder="Ingrese nombre Producto"> <input type="text" name="" id="" form="input" placeholder="Ingrese nombre de la Tienda"> <a href="">Buscar</a>
-
-</div>
+        </div>
+    </div>
+</form>
 {% endblock body %}

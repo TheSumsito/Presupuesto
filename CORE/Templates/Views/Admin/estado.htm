@@ -1,0 +1,48 @@
+{% extends 'Complements/head.htm' %}
+{% block body %}
+<form method="POST">
+    {% csrf_token %}
+    <div class="container">
+        <center>
+            <br>
+            <h1 style="font-family: fantasy">Tiendas</h1>
+            <hr style="background-color: black">
+            {% if succes %}
+                <h2 class="h2 text-success">Se cambio el estado con éxito!</h2>
+            {% endif %}
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Sucursal</th>
+                        <th scope="col">Dirección</th>
+                        <th scope="col">Ciudad</th>
+                        <th scope="col">Región</th>
+                        <th scope="col">Estado</th>
+                        <th scope="col">Aprobacion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for s in stores %}
+                    <tr>
+                        <td>{{s.store_id}}</td>
+                        <td>{{s.store_name}}</td>
+                        <td>{{s.office}}</td>
+                        <td>{{s.adress}}</td>
+                        <td>{{s.provincia_id}}</td>
+                        <td>{{s.region_id}}</td>
+                        <td>{{s.estado}}</td>
+                        {% if s.estado == 0 %}
+                            <td><button type=submit class="btn btn-warning" name="btnTest" value={{s.store_id}}>Aprobar</button></td>
+                        {% else %}
+                            <td>Aprobada</td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </center>
+    </div>
+</form>
+{% endblock body %}

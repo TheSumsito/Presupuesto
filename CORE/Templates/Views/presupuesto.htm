@@ -1,5 +1,41 @@
-{% extends 'Complements/usuario.htm' %}
+{% extends 'Complements/head.htm' %}
 
 {% block body %}
-
+<form method="POST">
+    {% csrf_token %}
+    <div class="container">
+        <center>
+            <br>
+            <h1 style="font-family: fantasy">Presupuestos de <span class="text-success">{{user}}</span></h1>
+            <hr style="background-color: black">
+        </center>
+        <div class="form-group">
+            <a class="btn btn-success btn-lg" href="{% url 'agregarlista' %}">Agregar nueva</a>
+        </div>
+        <table class="table">
+            <thead class="thead-dark">
+                <h4 style="text-align: left; font-family: fantasy">Nombre Listado: <!--Variable Nombre--></h4>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Dinero presupuestado</th>
+                    <th scope="col">Productos</th>
+                    <th scope="col">Costo total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in user_list %}
+                    <tr>
+                        <td scope="row">{{i.name}}</td>
+                        <td scope="row">{{i.max_money}}</td>
+                        <td scope="row">{{i.tot_prod}}</td>
+                        <td scope="row">{{i.tot_money}}</td>
+                        <td scope="row"><button name="btnAdd" type="submit" value="{{i.name}}" class="btn btn-danger">Agregar producto</button></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br>
+        <!-- AQUI LISTADO DE PRESUPUESTOS DEL USUARIO !! -->
+    </div>
+</form>
 {% endblock body %}

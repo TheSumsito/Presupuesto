@@ -1,0 +1,63 @@
+{% extends 'Complements/head.htm' %}
+{% block body %}
+<form method="POST">
+    {% csrf_token %}
+    <div class="container">
+        <center>
+            <br>
+            <h1 style="font-family: fantasy">Ingreso de Tiendas</h1>
+            <hr style="background-color: black">
+            {% if succes %}
+                <h2 class="h2 text-success">Se guardo con exito!</h2>
+            {% endif %}
+            <br>
+        </center>
+        <div class="form-row">
+            <div class="col-6">
+                <p>Nombre tienda:</p>
+                <input type="text" class="form-control" name="txtNombre" id="txtNombre" placeholder="Ingrese nombre">
+            </div>
+            <div class="col-6">
+                <p>Sucursal:</p>
+                <input type="text" class="form-control" name="txtSucursal" id="txtSucursal" placeholder="Ingrese sucursal">
+            </div>
+        </div>
+        <br>
+        <div class="form-row">
+            <div class="col-6">
+                <p>Dirección:</p>
+                <input type="text" class="form-control" name="txtDireccion" id="txtDireccion" placeholder="Ingrese direccion">
+            </div>
+            <div class="col-6">
+                <p>Ciudad:</p>
+                <select class="form-control" name="cboCiudad" id="cboCiudad">
+                    {% for p in provincias  %}
+                        <option value="{{p.provincia_id}}">{{p.nombre}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <br>
+        <div class="form-row">
+            <div class="col-6">
+                <p>Region:</p>
+                <select class="form-control" name="cboRegion" id="cboRegion">
+                    {% for r in regiones  %}
+                        <option value="{{r.region_id}}">{{r.nombre}} {{r.ordinal}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-6">
+                <center>
+                    <img style="width: 30%" src="../../../static/img/Tiendas/copywriting-para-tiendas-virtuales.png"
+                        alt="">
+                </center>
+                <div class="col-6">
+                    <button type="submit" class="btn-warning btn" value="Registrar">Agregar tienda</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+{% endblock body%}

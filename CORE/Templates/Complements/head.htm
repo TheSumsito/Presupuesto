@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home</title>
 
+    <title>Home</title>
     <!-- CSS BOOTSTRAP -->
     <link rel="stylesheet" href="../../static/css/bootstrap.min.css">
 
@@ -32,9 +32,20 @@
                         <a class="nav-link active h5 text-light"  href="{% url 'contacto' %}">Contacto</a>
                     </li>
                     {% if user.is_staff %}
-                        <li class="nav-item">
-                            <a class="nav-link active h5 text-warning" href="#">Admin</a>
-                        </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active h5 text-warning" href="#" id="navbarDropdown"
+                            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="False">
+                            Admin
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="nav-link active h6  text-dark" href="{% url 'agregar_tienda' %}">Agregar
+                                tienda</a>
+                            <a class="nav-link active h6  text-dark" href="{% url 'eliminar_tienda' %}">Eliminar
+                                tienda</a>
+                            <div class="dropdown-divider" style="background-color: black"></div>
+                            <a class="nav-link active h6  text-dark" href="{% url 'cambio_estado' %}">Estado tienda</a>
+                        </div>
+                    </li>
                     {% endif %}
                     {% if user.is_authenticated == False %}
                         <li class="nav-item">
@@ -44,9 +55,11 @@
                             <a class="nav-link active h5  text-light" href="{% url 'login' %}">Login</a>
                         </li>
                     {% else %}
+                        {% if user.is_staff == False %}
                         <li class="nav-item">
-                            <a class="nav-link active h5  text-light" href="#">Presupuestos</a>
+                            <a class="nav-link active h5  text-light" href="{% url 'presupuesto' %}">Presupuestos</a>
                         </li>  
+                        {% endif %}
                         <li class="nav-item">
                             <a class="nav-link active h5  text-light" href="{% url 'cerrar' %}">Cerrar sesión</a>
                         </li>   

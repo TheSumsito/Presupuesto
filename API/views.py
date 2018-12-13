@@ -20,4 +20,6 @@ class ProvinciasList(generics.ListCreateAPIView):
     queryset = Provincias.objects.all()
     serializer_class = ProvinciaSerializer
 
+
+
     

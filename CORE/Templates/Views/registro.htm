@@ -8,7 +8,7 @@
                     <form id="login-form" class="form" method="POST">
                         {% csrf_token %}
                         <br>
-                        <h3 class="text-center" style="font-family: fantasy">Registrarse</h3>
+                        <h1 class="text-center" style="font-family: fantasy">Registrarse</h1>
                         <br>
                         <h4>Datos Personales</h4>
                         <hr style="background-color: black">
@@ -76,7 +76,9 @@
                         <!-- Boton Creacion Usuario -->
                         <br>
                         <div class="form-group" method="POST">
-                            <input type="submit" name="btnRegistrar" class="btn btn-success btn-md" value="Registrar">
+                            <input type="submit" name="btnRegistrar" class="btn btn-warning btn-md" value="Registrar">
+                            <br>
+                            <img class="img-fluid" style="width: 50%; padding-bottom: 30px" align="right" src="../../static/img/Logo/reboot1.png">
                         </div>
                     </form>
                 </div>

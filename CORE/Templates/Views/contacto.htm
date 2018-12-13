@@ -9,7 +9,7 @@
                     <form id="login-form" class="form" method="POST">
                         {% csrf_token %}
                         <br>
-                        <h3 class="text-center" style="font-family: fantasy">Contactanos Para Mas Información</h3>
+                        <h2 class="text-center" style="font-family: fantasy">Contactanos Para Mas Información</h2>
                         <hr style="background-color: black">
                         <!-- Nombre -->
                         <div class="form-group">
@@ -29,7 +29,12 @@
                         <!-- Boton Ingresar Contacto -->
                         <br>
                         <div class="form-group" method="POST">
-                            <input type="submit" name="btnEnviar" class="btn btn-success btn-md" value="Enviar mensaje">
+                            <input type="submit" name="btnEnviar" class="btn btn-warning btn-md" value="Enviar mensaje">
+                        </div>
+                        <div>
+                            <center>
+                                <img style="width: 50%"  src="../../static/img/Logo/reboot1.png">
+                            </center>
                         </div>
                     </form>
                 </div>

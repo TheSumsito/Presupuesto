@@ -1,0 +1,42 @@
+{% extends 'Complements/head.htm' %}
+{% block body %}
+<div class="container">
+<form method="POST">
+    {% csrf_token %}
+    <center>
+        <br>
+        <h1 style="font-family: fantasy">Lista de <span class="text-success">{{user}}</span></h1>
+        <hr style="background-color: black">
+        <table class="table">
+            <thead class="thead-dark">
+                <h4 style="text-align: left; font-family: fantasy">Lista {{list_name}}</h4>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Nombre producto</th>
+                    <th scope="col">Tienda</th>
+                    <th scope="col">Precio producto</th>
+                    <th scope="col">Costo presupuestado</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in productos %}
+                <tr>
+                    <th scope="row">{{p.prod_id}}</th>
+                    <th scope="row">{{p.prod_name}}</th>
+                    <td scope="row">{{p.store_id}}</td>
+                    <td scope="row">{{p.real_cost}}</td>
+                    <td scope="row">{{p.pre_cost}}</td>
+                    <td></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a class="btn btn-warning btn-lg" href="{% url 'productos'%}">Agregar producto</a>
+    </center>
+</form>
+</div>
+
+
+
+{% endblock body%}
